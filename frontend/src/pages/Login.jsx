@@ -10,6 +10,7 @@ import { useAuth } from "../context/AuthContext.jsx";
 import Button from "../components/ui/Button.jsx";
 import Input from "../components/ui/Input.jsx";
 import { getApiError } from "../api/client.js";
+import { dashboardImageUrl, logoUrl } from "../assets.js";
 
 const schema = z.object({
   email: z.string().email("Enter a valid email"),
@@ -54,7 +55,7 @@ export default function Login() {
       {/* LEFT SIDE IMAGE */}
       <div className="hidden md:block w-1/2 h-screen">
         <img
-          src="/assets/log.png"   
+          src={dashboardImageUrl}
           alt="illustration"
           className="w-full h-full object-cover"
         />
@@ -66,7 +67,7 @@ export default function Login() {
 
           {/* LOGO → HOME */}
           <Link to="/" className="flex items-center gap-2 mb-6">
-            <img src="/assets/logo.png" alt="logo" className="h-10" />
+            <img src={logoUrl} alt="WorkGrid" className="h-10" />
             <span className="text-lg font-semibold text-slate-900">
               WorkGrid
             </span>

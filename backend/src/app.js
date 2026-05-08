@@ -16,6 +16,10 @@ import dashboardRoutes from "./routes/dashboard.routes.js";
 
 const app = express();
 
+if (env.isProduction) {
+  app.set("trust proxy", 1);
+}
+
 app.use(helmet());
 app.use(
   cors({
@@ -28,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 if (env.nodeEnv !== "test") {
-  app.use(morgan(env.nodeEnv === "production" ? "combined" : "dev"));
+  app.use(morgan(env.isProduction ? "combined" : "dev"));
 }
 
 const authLimiter = rateLimit({

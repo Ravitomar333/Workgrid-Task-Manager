@@ -1,6 +1,7 @@
 import { useAuth } from "../context/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
 import Avatar from "../components/ui/Avatar.jsx";
+import { dashboardImageUrl, logoUrl } from "../assets.js";
 
 export default function Home() {
     const { isAuthenticated, user } = useAuth();
@@ -31,7 +32,7 @@ export default function Home() {
             onClick={() => navigate("/")}
             className="flex items-center gap-2 cursor-pointer"
             >
-            <img src="/assets/logo.png" className="h-8 w-auto object-contain" />
+            <img src={logoUrl} alt="WorkGrid" className="h-8 w-auto object-contain" />
             </div>
 
             {/* NAV LINKS */}
@@ -131,7 +132,7 @@ export default function Home() {
             <div className="relative flex justify-center">
             <div className="absolute w-72 h-72 bg-indigo-300/30 blur-3xl rounded-full" />
             <img
-                src="/assets/log.png"
+                src={dashboardImageUrl}
                 alt="dashboard"
                 className="relative w-[95%] md:w-full object-contain"
             />
@@ -209,7 +210,7 @@ export default function Home() {
 
             <div>
                 <div className="flex items-center gap-2">
-                <img src="/assets/logo.png" className="h-8" />
+                <img src={logoUrl} alt="WorkGrid" className="h-8" />
                 <span className="font-semibold text-lg">WorkGrid</span>
                 </div>
                 <p className="mt-3 text-sm text-slate-400">

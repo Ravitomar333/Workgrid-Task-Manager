@@ -12,8 +12,8 @@ const REFRESH_COOKIE = "rt";
 
 const cookieOptions = () => ({
   httpOnly: true,
-  secure: env.nodeEnv === "production",
-  sameSite: env.nodeEnv === "production" ? "none" : "lax",
+  secure: env.isProduction,
+  sameSite: env.isProduction ? "none" : "lax",
   maxAge: 7 * 24 * 60 * 60 * 1000,
   path: "/api/auth",
 });
@@ -79,7 +79,7 @@ export const refresh = asyncHandler(async (req, res) => {
 });
 
 export const logout = asyncHandler(async (_req, res) => {
-  res.clearCookie(REFRESH_COOKIE, { path: "/api/auth" });
+  res.clearCookie(REFRESH_COOKIE, cookieOptions());
   res.json({ success: true, message: "Logged out" });
 });
 

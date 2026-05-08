@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "../../context/AuthContext.jsx";
 import { cn } from "../../utils/cn.js";
+import { logoUrl } from "../../assets.js";
 
 const items = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -44,8 +45,8 @@ export default function Sidebar({ open, onClose, collapsed }) {
 
           <Link to="/" className="flex items-center gap-2">
             <img
-              src="/assets/logo.png"
-              alt="logo"
+              src={logoUrl}
+              alt="WorkGrid"
               className="h-9 w-auto object-contain"
             />
           </Link>

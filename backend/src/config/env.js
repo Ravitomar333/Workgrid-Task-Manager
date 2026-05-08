@@ -1,6 +1,10 @@
 import dotenv from "dotenv";
 dotenv.config();
 
+const nodeEnv = process.env.NODE_ENV || "development";
+const isProduction =
+  nodeEnv === "production" || Boolean(process.env.RAILWAY_ENVIRONMENT);
+
 const required = ["MONGO_URI", "JWT_ACCESS_SECRET", "JWT_REFRESH_SECRET"];
 for (const key of required) {
   if (!process.env[key]) {
@@ -10,7 +14,8 @@ for (const key of required) {
 }
 
 export const env = {
-  nodeEnv: process.env.NODE_ENV || "development",
+  nodeEnv,
+  isProduction,
   port: parseInt(process.env.PORT || "5000", 10),
   clientUrl: process.env.CLIENT_URL || "http://localhost:5173",
   mongoUri: process.env.MONGO_URI,

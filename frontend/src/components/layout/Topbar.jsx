@@ -11,6 +11,7 @@ import {
 import { useAuth } from "../../context/AuthContext.jsx";
 import Avatar from "../ui/Avatar.jsx";
 import { RolePill } from "../ui/StatusBadge.jsx";
+import { logoUrl } from "../../assets.js";
 
 export default function Topbar({ onMenuClick, onToggleSidebar }) {
   const { user, logout } = useAuth();
@@ -58,7 +59,7 @@ export default function Topbar({ onMenuClick, onToggleSidebar }) {
 
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-2">
-          <img src="/assets/logo.png" className="h-8 w-auto object-contain" />
+          <img src={logoUrl} alt="WorkGrid" className="h-8 w-auto object-contain" />
           {/* <span className="font-semibold text-slate-900 hidden sm:block">
             WorkGrid
           </span> */}
